@@ -214,19 +214,6 @@ void MainWindow::alterar_comando(int pos)//Altera o comando
     ui->tex_comando->setText(comando);
 }
 
-void MainWindow::on_Rodar_clicked()
-{
-    QString comando;
-    comando=ui->tex_comando->toPlainText();
-
-    system(comando.toLatin1());
-
-//    QProcess *proc = new QProcess(this);
-//    proc->start("gnome-terminal -x");
-//    if (!proc->waitForStarted()) {
-
-//    }
-}
 
 void MainWindow::on_saida_1_clicked()
 {

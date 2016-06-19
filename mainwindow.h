@@ -195,6 +195,20 @@ private slots:
 
     void on_des_prog5_clicked();
 
+    void on_h_area_code_clicked();
+
+    void on_h_guard_interval_clicked();
+
+    void on_h_transmission_mode_clicked();
+
+    void on_h_physical_channel_clicked();
+
+    void on_h_virtual_chanel_clicked();
+
+    void on_h_original_network_ID_clicked();
+
+    void on_help_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
