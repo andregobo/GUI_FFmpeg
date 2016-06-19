@@ -1,0 +1,3 @@
+mpegts_original_network_id number
+
+    Set the original_network_id (default 0x0001). This is unique identifier of a network in DVB. Its main use is in the unique identification of a service through the path Original_Network_ID, Transport_Stream_ID. 

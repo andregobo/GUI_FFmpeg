@@ -1,0 +1,355 @@
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+
+#include <iostream>
+#include <QHBoxLayout>
+#include <QFile>
+#include <QTextStream>
+#include <QFileDialog>
+#include <QProcess>
+
+#include <qfile.h>
+#include <qtextstream.h>
+#include <iostream>
+
+#include <QCoreApplication>
+
+#include <QString>
+#include <QDebug>
+
+#include <QVBoxLayout>
+
+
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+void MainWindow::verificar_entrada(QString arquivo)
+{
+    QString vid, ckbox;
+    QFile f(arquivo);
+    int index1, index2, tipo, caracter, cont;
+    f.open(QFile::ReadOnly);
+
+//    if( !f.open( IO_WriteOnly | IO_Append ) )
+//    {
+//    std::cout << "Failed to open file." << std::endl;
+//    return 0;
+//    }
+    QTextStream in(&f);
+    QString texto = in.readAll();
+
+
+
+    // Video--------------------------------------------------------------------------------
+
+    //texto.contains()//verifica se contém string tal na string
+    caracter=0;
+    index1=texto.indexOf(": Video: ",caracter);
+    index2=-1;
+
+
+    if(index1>-1)
+    {
+        while(index1!=index2)
+        {
+            index1=texto.indexOf(": Video: ",caracter);
+            index2=texto.lastIndexOf(": Video: ");
+            qDebug() << texto;
+            qDebug() << index1;
+            qDebug() << index2;
+            tipo=texto.indexOf(" ",index1+9);
+            qDebug() << tipo;
+
+            vid=texto.mid(index1-16,tipo-index2+16);
+
+            // It opened, now we need to close it
+            //std::cout << "It worked." << std::endl;
+
+
+            qDebug() << vid;
+
+
+
+//            QGroupBox *groupBox = new QGroupBox(tr("Exclusive Radio Buttons"));
+
+//                QRadioButton *radio1 = new QRadioButton(tr("&Radio button 1"));
+//                QRadioButton *radio2 = new QRadioButton(tr("R&adio button 2"));
+//                QRadioButton *radio3 = new QRadioButton(tr("Ra&dio button 3"));
+
+//                radio1->setChecked(true);
+
+//                QVBoxLayout *vbox = new QVBoxLayout;
+//                vbox->addWidget(radio1);
+//                vbox->addWidget(radio2);
+//                vbox->addWidget(radio3);
+//                vbox->addStretch(1);
+//                groupBox->setLayout(vbox);
+
+
+
+//            ui->input1_0x0->
+
+//            QCheckBox* checkboxes[6];
+//            checkbox[0] = input1_0x0;
+//            checkbox[1] = input1_0x1;
+//            checkbox[2] = input1_0x2;
+//            checkbox[3] = input1_0x3;
+//            checkbox[4] = input1_0x4;
+//            checkbox[5] = input1_0x5;
+
+//            QStringList usedCheckboxes;
+
+//            for (int i = 0; i < 6; i++)
+//            {
+//                checkbox[i]->setText(vid);
+//                usedCheckboxes << QString::number(i+1);
+//            }
+
+//            ckbox="input1_0x0";
+//            ui->ckbox->setText(vid);
+
+
+
+
+
+
+            caracter=index1+9;
+        }
+    }
+    // Audio--------------------------------------------------------------------------------
+
+    //texto.contains()//verifica se contém string tal na string
+    index1=texto.indexOf(": Audio: ");
+    index2=texto.lastIndexOf(": Audio: ");
+
+    qDebug() << index1;
+    qDebug() << index2;
+    tipo=texto.indexOf(" ",index1+9);
+    qDebug() << tipo;
+
+    vid=texto.mid(index1-16,tipo-index2+16);
+
+    // It opened, now we need to close it
+    //std::cout << "It worked." << std::endl;
+
+    qDebug() << vid;
+
+
+
+    // Data--------------------------------------------------------------------------------
+
+    //texto.contains()//verifica se contém string tal na string
+    index1=texto.indexOf(": Video: ");
+    index2=texto.lastIndexOf(": Video: ");
+    tipo=texto.indexOf(" ",index1+9);
+    vid=texto.mid(index1-16,tipo-index2+16);
+    // It opened, now we need to close it
+    //std::cout << "It worked." << std::endl;
+    qDebug() << vid;
+
+
+
+
+
+
+    f.close();
+}
+
+void MainWindow::alterar_comando(QString text, int pos)
+{
+    QString comando, input_1, map_2, tempo_5;
+
+    switch (pos)
+    {
+       case 1:
+        if (ui->tex_entrada_1->text()=="")
+        {
+            input_1 = "";
+        }
+        else
+        {
+            input_1= " -i " + ui->tex_entrada_1->text();
+        }
+        if (ui->tex_entrada_2->text()!="")
+        {
+            input_1= input_1 + " -i " + ui->tex_entrada_2->text();
+        }
+        if (ui->tex_entrada_3->text()!="")
+        {
+            input_1= input_1 + " -i " + ui->tex_entrada_3->text();
+        }
+        if (ui->tex_entrada_4->text()!="")
+        {
+            input_1= input_1 + " -i " + ui->tex_entrada_4->text();
+        }
+       break;
+
+       case 2:
+
+         map_2=text;
+       break;
+
+       case 5:
+          tempo_5=text;
+       break;
+
+
+    }
+
+    comando =  "gnome-terminal -x ffmpeg" + input_1 + map_2 + tempo_5;
+
+    ui->tex_comando->setText(comando);
+
+}
+void MainWindow::on_codec_video_clicked()
+{
+
+}
+void MainWindow::on_codec_video_pressed()
+{
+
+}
+
+void MainWindow::on_Limpar_clicked()
+{
+   ui->tex_comando->setText("ffmpeg ");
+
+
+}
+
+void MainWindow::on_Carregar_clicked()
+{
+//    if (pos==1)
+//    {
+//        ui->box_comando->setText(text);
+//    }
+
+//    QString comando;
+//    comando="./ffmpeg -i";
+
+//    if(ui->codec_video->checkState())
+//    {
+//    comando = comando + "video";
+//    }
+//    ui->box_comando->setText(comando);
+
+//    ui->groupBox1->setHidden(0);
+
+
+}
+
+//-------------------------------------------------------------ENTRADAS-----------------------------------------------------------
+void MainWindow::on_entrada_1_clicked()
+{
+    QString filename = QFileDialog::getOpenFileName(this, tr("Escolha o arquivo"));
+    ui->tex_entrada_1->setText(filename);
+
+    alterar_comando(filename,1);
+    system("ffmpeg -i " + filename.toAscii() + " 2>entrada1");
+    verificar_entrada("entrada1");
+}
+void MainWindow::on_entrada_2_clicked()
+{
+    QString filename = QFileDialog::getOpenFileName(this, tr("Escolha o arquivo"));
+    ui->tex_entrada_2->setText(filename);
+
+    alterar_comando(filename,1);
+    system("ffmpeg -i " + filename.toAscii() + " 2>entrada2");
+    verificar_entrada("entrada2");
+}
+
+void MainWindow::on_entrada_3_clicked()
+{
+    QString filename = QFileDialog::getOpenFileName(this, tr("Escolha o arquivo"));
+    ui->tex_entrada_3->setText(filename);
+
+    alterar_comando(filename,1);
+    system("ffmpeg -i " + filename.toAscii() + " 2>entrada3");
+    verificar_entrada("entrada3");
+}
+
+void MainWindow::on_entrada_4_clicked()
+{
+    QString filename = QFileDialog::getOpenFileName(this, tr("Escolha o arquivo"));
+    ui->tex_entrada_4->setText(filename);
+
+    alterar_comando(filename,1);
+    system("ffmpeg -i " + filename.toAscii() + " 2>entrada4");
+    verificar_entrada("entrada4");
+}
+//--------------------------------------------------------------EXCLUIR ENTRADAS-----------------------------------------------------------
+
+void MainWindow::on_excluir_entrada_1_clicked()
+{
+    ui->tex_entrada_1->setText("");
+    alterar_comando("",1);
+}
+void MainWindow::on_excluir_entrada_2_clicked()
+{
+    ui->tex_entrada_2->setText("");
+    alterar_comando("",1);
+}
+
+void MainWindow::on_excluir_entrada_3_clicked()
+{
+    ui->tex_entrada_3->setText("");
+    alterar_comando("",1);
+}
+
+void MainWindow::on_excluir_entrada_4_clicked()
+{
+    ui->tex_entrada_4->setText("");
+    alterar_comando("",1);
+}
+//------------------------------------------------------------------------------------------------------------------------------------
+
+void MainWindow::on_saida_1_clicked()
+{
+    QString filename = QFileDialog::getOpenFileName(this, tr("Escolha o arquivo"));
+
+}
+
+
+
+void MainWindow::on_Rodar_clicked()
+{
+    QString comando;
+    comando=ui->tex_comando->toPlainText();
+
+    system(comando.toAscii());
+
+//    QProcess *proc = new QProcess(this);
+//    proc->start("gnome-terminal -x");
+//    if (!proc->waitForStarted()) {
+
+//    }
+}
+
+
+
+
+
+void MainWindow::on_tex_saida_1_textChanged()
+{
+
+}
+
+void MainWindow::on_Nome_saida_textChanged()
+{
+
+}
+
+
+
+void MainWindow::on_input1_0x0_clicked()
+{
+
+}

@@ -1,0 +1,25 @@
+ffmpeg version 2.2.git Copyright (c) 2000-2014 the FFmpeg developers
+  built on Jun 13 2016 15:09:29 with gcc 5.2.1 (Ubuntu 5.2.1-22ubuntu2) 20151010
+  configuration: 
+  libavutil      52. 71.100 / 52. 71.100
+  libavcodec     55. 56.107 / 55. 56.107
+  libavformat    55. 36.100 / 55. 36.100
+  libavdevice    55. 11.100 / 55. 11.100
+  libavfilter     4.  3.100 /  4.  3.100
+  libswscale      2.  5.102 /  2.  5.102
+  libswresample   0. 18.100 /  0. 18.100
+Input #0, mpegts, from '/home/andre/Desktop/TCC/GUI/GUI_FFMPEG/Amostras/programa1.ts':
+  Duration: 00:00:09.46, start: 1.400000, bitrate: 8254 kb/s
+  Program 32 
+    Metadata:
+      service_name    : Service01
+      service_provider: FFmpeg
+    Stream #0:0[0x100]: Video: mpeg2video (Main) ([2][0][0][0] / 0x0002), yuv420p(tv), 720x576 [SAR 64:45 DAR 16:9], max. 4350 kb/s, 25 fps, 25 tbr, 90k tbn, 50 tbc
+    Stream #0:1[0x102](eng): Audio: mp2 ([3][0][0][0] / 0x0003), 48000 Hz, stereo, s16p, 251 kb/s
+  Program 57 
+    Metadata:
+      service_name    : Service01
+      service_provider: FFmpeg
+    Stream #0:2[0x101]: Video: mpeg2video (Main) ([2][0][0][0] / 0x0002), yuv420p(tv), 720x576 [SAR 64:45 DAR 16:9], max. 6500 kb/s, 25 fps, 25 tbr, 90k tbn, 50 tbc
+    Stream #0:3[0x103](eng): Audio: mp2 ([3][0][0][0] / 0x0003), 48000 Hz, stereo, s16p, 188 kb/s
+At least one output file must be specified
