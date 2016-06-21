@@ -1,19 +1,17 @@
-ffmpeg version 2.2.git Copyright (c) 2000-2014 the FFmpeg developers
-  built on Jun 13 2016 15:09:29 with gcc 5.2.1 (Ubuntu 5.2.1-22ubuntu2) 20151010
-  configuration: 
-  libavutil      52. 71.100 / 52. 71.100
-  libavcodec     55. 56.107 / 55. 56.107
-  libavformat    55. 36.100 / 55. 36.100
-  libavdevice    55. 11.100 / 55. 11.100
-  libavfilter     4.  3.100 /  4.  3.100
-  libswscale      2.  5.102 /  2.  5.102
-  libswresample   0. 18.100 /  0. 18.100
-Input #0, mpegts, from '/home/andre/Desktop/TCC/GUI/GUI_FFMPEG/videos/tve_LD_0406.ts':
-  Duration: 00:01:00.96, start: 1.501722, bitrate: 383 kb/s
+ffmpeg version 0.8.17-4:0.8.17-0ubuntu0.12.04.1, Copyright (c) 2000-2014 the Libav developers
+  built on Mar 16 2015 13:26:50 with gcc 4.6.3
+The ffmpeg program is only provided for script compatibility and will be removed
+in a future release. It has been deprecated in the Libav project to allow for
+incompatible command line syntax improvements in its replacement called avconv
+(see Changelog for details). Please use avconv instead.
+[aac_latm @ 0xe13080] audio config changed
+[mpegts @ 0xe0b7a0] max_analyze_duration reached
+Input #0, mpegts, from '/media/ANDRE SANDI/TCC/GUI/GUI_FFMPEG/videos/rbs_LD_0406.ts':
+  Duration: 00:01:27.39, start: 1.400000, bitrate: 195 kb/s
   Program 1 
     Metadata:
       service_name    : Service01
       service_provider: FFmpeg
-    Stream #0:0[0x100]: Video: h264 (Constrained Baseline) ([27][0][0][0] / 0x001B), yuv420p, 320x240 [SAR 1:1 DAR 4:3], 14.99 fps, 29.97 tbr, 90k tbn, 29.97 tbc
-    Stream #0:1[0x101]: Audio: aac_latm ([17][0][0][0] / 0x0011), 48000 Hz, stereo, fltp
+    Stream #0.0[0x100]: Video: h264 (Constrained Baseline), yuv420p, 320x240 [PAR 1:1 DAR 4:3], 14.99 fps, 14.99 tbr, 90k tbn, 29.97 tbc
+    Stream #0.1[0x101]: Audio: aac_latm, 48000 Hz, 2 channels (FC), s16
 At least one output file must be specified

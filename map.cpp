@@ -214,8 +214,6 @@ QString MainWindow::multi_ret_entrada(int in)
     return map;
 }
 
-
-
 void MainWindow::multi_ativo()
 {
     int entradas;

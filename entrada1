@@ -1,19 +1,187 @@
-ffmpeg version 2.2.git Copyright (c) 2000-2014 the FFmpeg developers
-  built on Jun 13 2016 15:09:29 with gcc 5.2.1 (Ubuntu 5.2.1-22ubuntu2) 20151010
-  configuration: 
-  libavutil      52. 71.100 / 52. 71.100
-  libavcodec     55. 56.107 / 55. 56.107
-  libavformat    55. 36.100 / 55. 36.100
-  libavdevice    55. 11.100 / 55. 11.100
-  libavfilter     4.  3.100 /  4.  3.100
-  libswscale      2.  5.102 /  2.  5.102
-  libswresample   0. 18.100 /  0. 18.100
-Input #0, mpegts, from '/home/andre/Desktop/TCC/GUI/GUI_FFMPEG/videos/tve_HD_0406.ts':
-  Duration: 00:01:01.36, start: 1.400000, bitrate: 10759 kb/s
-  Program 1 
+ffmpeg version 0.8.17-4:0.8.17-0ubuntu0.12.04.1, Copyright (c) 2000-2014 the Libav developers
+  built on Mar 16 2015 13:26:50 with gcc 4.6.3
+The ffmpeg program is only provided for script compatibility and will be removed
+in a future release. It has been deprecated in the Libav project to allow for
+incompatible command line syntax improvements in its replacement called avconv
+(see Changelog for details). Please use avconv instead.
+[h264 @ 0x256f060] sps_id out of range
+[h264 @ 0x256f060] non-existing SPS 7 referenced in buffering period
+[h264 @ 0x256f060] non-existing PPS referenced
+[h264 @ 0x256f060] sps_id out of range
+[h264 @ 0x256f060] non-existing SPS 7 referenced in buffering period
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] no frame!
+[h264 @ 0x256f060] sps_id out of range
+[h264 @ 0x256f060] non-existing SPS 8 referenced in buffering period
+[h264 @ 0x256f060] non-existing PPS referenced
+[h264 @ 0x256f060] sps_id out of range
+[h264 @ 0x256f060] non-existing SPS 8 referenced in buffering period
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] no frame!
+[aac_latm @ 0x25ba020] audio config changed
+[h264 @ 0x256f060] sps_id out of range
+[h264 @ 0x256f060] non-existing SPS 9 referenced in buffering period
+[h264 @ 0x256f060] non-existing PPS referenced
+[h264 @ 0x256f060] sps_id out of range
+[h264 @ 0x256f060] non-existing SPS 9 referenced in buffering period
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] no frame!
+[h264 @ 0x256f060] sps_id out of range
+[h264 @ 0x256f060] non-existing SPS 10 referenced in buffering period
+[h264 @ 0x256f060] non-existing PPS referenced
+[h264 @ 0x256f060] sps_id out of range
+[h264 @ 0x256f060] non-existing SPS 10 referenced in buffering period
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] no frame!
+[h264 @ 0x256f060] sps_id out of range
+[h264 @ 0x256f060] non-existing SPS 11 referenced in buffering period
+[h264 @ 0x256f060] non-existing PPS referenced
+[h264 @ 0x256f060] sps_id out of range
+[h264 @ 0x256f060] non-existing SPS 11 referenced in buffering period
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] no frame!
+[h264 @ 0x256f060] sps_id out of range
+[h264 @ 0x256f060] non-existing SPS 12 referenced in buffering period
+[h264 @ 0x256f060] non-existing PPS referenced
+[h264 @ 0x256f060] sps_id out of range
+[h264 @ 0x256f060] non-existing SPS 12 referenced in buffering period
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] no frame!
+[aac_latm @ 0x25934c0] audio config changed
+[h264 @ 0x256f060] sps_id out of range
+[h264 @ 0x256f060] non-existing SPS 13 referenced in buffering period
+[h264 @ 0x256f060] non-existing PPS referenced
+[h264 @ 0x256f060] sps_id out of range
+[h264 @ 0x256f060] non-existing SPS 13 referenced in buffering period
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] non-existing PPS 0 referenced
+[h264 @ 0x256f060] decode_slice_header error
+[h264 @ 0x256f060] no frame!
+[aac_latm @ 0x256f9e0] audio config changed
+[aac_latm @ 0x25954e0] audio config changed
+[aac_latm @ 0x25954e0] Not evaluating a further program_config_element as this construct is dubious at best.
+[aac_latm @ 0x25954e0] Number of bands (35) exceeds limit (32).
+[aac_latm @ 0x2570360] audio config changed
+[aac_latm @ 0x2570360] Not evaluating a further program_config_element as this construct is dubious at best.
+[aac_latm @ 0x2570360] Number of bands (35) exceeds limit (32).
+[mpegts @ 0x25687a0] Continuity check failed for pid 277 expected 9 got 10
+[mpegts @ 0x25687a0] Continuity check failed for pid 273 expected 5 got 6
+[mpegts @ 0x25687a0] Continuity check failed for pid 273 expected 2 got 3
+[mpegts @ 0x25687a0] PES packet size mismatch
+[mpegts @ 0x25687a0] Continuity check failed for pid 273 expected 13 got 14
+[mpegts @ 0x25687a0] Continuity check failed for pid 275 expected 15 got 0
+[mpegts @ 0x25687a0] Continuity check failed for pid 273 expected 13 got 14
+[mpegts @ 0x25687a0] Continuity check failed for pid 273 expected 6 got 7
+[mpegts @ 0x25687a0] Continuity check failed for pid 273 expected 1 got 2
+[mpegts @ 0x25687a0] Continuity check failed for pid 273 expected 11 got 12
+[mpegts @ 0x25687a0] Continuity check failed for pid 273 expected 0 got 5
+[mpegts @ 0x25687a0] Continuity check failed for pid 273 expected 7 got 8
+[NULL @ 0x258f480] start time is not set in estimate_timings_from_pts
+[NULL @ 0x25914a0] start time is not set in estimate_timings_from_pts
+[NULL @ 0x25d0340] start time is not set in estimate_timings_from_pts
+[NULL @ 0x25d23a0] start time is not set in estimate_timings_from_pts
+[mpegts @ 0x25687a0] PES packet size mismatch
+
+Seems stream 0 codec frame rate differs from container frame rate: 59.94 (60000/1001) -> 59.94 (60000/1001)
+
+Seems stream 9 codec frame rate differs from container frame rate: 29.97 (30000/1001) -> 29.97 (30000/1001)
+    Last message repeated 3 times
+Input #0, mpegts, from '/home/andg1705/Desktop/rbs_1905.ts':
+  Duration: 00:00:27.39, start: 81757.750000, bitrate: 16469 kb/s
+  Program 51648 
     Metadata:
-      service_name    : Service01
-      service_provider: FFmpeg
-    Stream #0:0[0x100]: Video: h264 (High) ([27][0][0][0] / 0x001B), yuv420p(tv, bt709), 1920x1080 [SAR 1:1 DAR 16:9], 29.97 fps, 29.97 tbr, 90k tbn, 59.94 tbc
-    Stream #0:1[0x101](por): Audio: aac_latm ([17][0][0][0] / 0x0011), 48000 Hz, stereo, fltp
+      service_name    : RBS TV HD
+      service_provider: 
+    Stream #0.0[0x111]: Video: h264 (High), yuv420p, 1920x1080 [PAR 1:1 DAR 16:9], 37.41 fps, 59.94 tbr, 90k tbn, 59.94 tbc
+    Stream #0.1[0x112]: Audio: aac_latm, 48000 Hz, stereo, s16
+    Stream #0.2[0x113]: Audio: aac_latm, 48000 Hz, 5.1, s16
+    Stream #0.3[0x116]: Data: [6][0][0][0] / 0x0006
+    Stream #0.4[0x384]: Data: [11][0][0][0] / 0x000B
+    Stream #0.5[0x1f4]: Data: [5][0][0][0] / 0x0005
+    Stream #0.6[0x114]: Audio: aac_latm, 48000 Hz, stereo, s16
+    Stream #0.7[0x115]: Audio: aac_latm, 48000 Hz, 5.1, s16
+  Program 51672 
+    Metadata:
+      service_name    : RBS TV 1seg
+      service_provider: 
+    Stream #0.9[0x211]: Video: h264 (Constrained Baseline), yuv420p, 320x240 [PAR 1:1 DAR 4:3], 14.99 fps, 29.97 tbr, 90k tbn, 29.97 tbc
+    Stream #0.8[0x212]: Audio: aac_latm, 48000 Hz, 2 channels (FC), s16
+    Stream #0.10[0x216]: Data: [6][0][0][0] / 0x0006
+    Stream #0.11[0x38c]: Data: [11][0][0][0] / 0x000B
+    Stream #0.12[0x1fc]: Data: [5][0][0][0] / 0x0005
 At least one output file must be specified

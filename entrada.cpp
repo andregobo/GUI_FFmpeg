@@ -2,24 +2,76 @@
 #include "ui_mainwindow.h"
 #include <QFile>
 #include <QDebug>
+#include <QMessageBox>
 #include <QFileDialog>
 //#define MAX_PACKET 500
 
 //-------------------------------------------------------------------------VERIFICAR ENTRADA---------------------------------
 void MainWindow::verificar_entrada(QString arquivo)
 {
-    QString ckbox;
+    QString ckbox, aux;
     QFile f(arquivo);
-    int index1, index2, tipo, ini_stream, caracter, numstream;
+    int index1, index2, numstream, i;
     f.open(QFile::ReadOnly);
 
     QTextStream in(&f);
     QString texto = in.readAll();
 
-    // ------------------------------------------------------------Video--------------------------------------------------------------------------------
+    index1=0;
+    if(texto.indexOf("Stream #0.")>0)
+    {
+        for(numstream=0;numstream<10;numstream++)
+        {
+            aux= "Stream #0." + QString::number(numstream);
+            qDebug() << aux;
+            index1=texto.indexOf(aux);
+            index2=texto.indexOf(" ",index1);
+            for(i=0;i<3;i++)
+            {
+                index2=texto.indexOf(" ",index2+1);
+            }
+           // qDebug() << index1;
+            if(index1>1)
+            {
+                ckbox=texto.mid(index1,index2-index1);
+                streams(ckbox,arquivo.mid(7,1).toInt(),numstream);
+            //    qDebug() << ckbox;
+            }
+        }
+    }
 
+    if(texto.indexOf("Stream #0:")>0)
+    {
+        for(numstream=0;numstream<10;numstream++)
+        {
+            aux= "Stream #0:" + QString::number(numstream);
+            //qDebug() << aux;
+            index1=texto.indexOf(aux);
+            index2=texto.indexOf(" ",index1);
+            for(i=0;i<3;i++)
+            {
+                index2=texto.indexOf(" ",index2+1);
+            }
+            //qDebug() << index1;
+            if(index1>1)
+            {
+                ckbox=texto.mid(index1,index2-index1);
+                streams(ckbox,arquivo.mid(7,1).toInt(),numstream);
+              //  qDebug() << ckbox;
+            }
+        }
+    }
+
+
+
+    // ------------------------------------------------------------Video--------------------------------------------------------------------------------
+/*
     caracter=0;
     numstream=0;
+
+
+
+
     index1=texto.indexOf(": Video: ",caracter);
     index2=-1;
 //    qDebug() << texto;
@@ -95,7 +147,7 @@ void MainWindow::verificar_entrada(QString arquivo)
             caracter=index1+9;
         }
     }
-
+*/
     f.close();
 }
 
@@ -305,7 +357,6 @@ void MainWindow::on_tex_entrada_1_editingFinished()
     system("ffmpeg -i " + ui->tex_entrada_1->text().toLatin1() + " 2>entrada1");
     verificar_entrada("entrada1");
     alterar_comando( 2);
-
 
     if(ui->tex_entrada_1->text()=="")
     {
