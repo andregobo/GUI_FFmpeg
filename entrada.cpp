@@ -10,15 +10,14 @@
 void MainWindow::verificar_entrada(QString arquivo)
 {
     QString ckbox, aux;
-    QFile f(arquivo);
+    QFile f(arquivo);//define o arquivo que será lido
     int index1, index2, numstream, i;
     f.open(QFile::ReadOnly);
-
     QTextStream in(&f);
-    QString texto = in.readAll();
-
+    QString texto = in.readAll();// le o arquivo
     index1=0;
-    if(texto.indexOf("Stream #0.")>0)
+
+    if(texto.indexOf("Stream #0.")>0)//verifica as Streams, foi encontrado casos tanto casos com "Stream #0." quanto "Stream #0:"
     {
         for(numstream=0;numstream<10;numstream++)
         {
@@ -39,8 +38,7 @@ void MainWindow::verificar_entrada(QString arquivo)
             }
         }
     }
-
-    if(texto.indexOf("Stream #0:")>0)
+    if(texto.indexOf("Stream #0:")>0)//verifica as Streams, foi encontrado casos tanto casos com "Stream #0." quanto "Stream #0:"
     {
         for(numstream=0;numstream<10;numstream++)
         {
@@ -61,70 +59,49 @@ void MainWindow::verificar_entrada(QString arquivo)
             }
         }
     }
-
-
-
+// Primeira implementaçãopara os maps, em determinados TS ele não funcionava corretamente
     // ------------------------------------------------------------Video--------------------------------------------------------------------------------
 /*
     caracter=0;
     numstream=0;
-
-
-
-
     index1=texto.indexOf(": Video: ",caracter);
     index2=-1;
 //    qDebug() << texto;
-
     if(index1>-1)
     {
         while(index1!=index2)
         {
             index1=texto.indexOf(": Video: ",caracter);
             index2=texto.lastIndexOf(": Video: ");
-
-
             tipo=texto.indexOf(" ",index1+11);
             ini_stream=texto.indexOf("Stream",index1-20);
-
             ckbox=texto.mid(ini_stream,tipo-ini_stream);
-
             streams(ckbox,arquivo.mid(7,1).toInt(),numstream);
             numstream=numstream+1;
-
             caracter=index1+9;
         }
     }
-
-
     //---------------------------------------------Audio--------------------------------------------------------------------------------
     caracter=0;
     index1=texto.indexOf(": Audio: ",caracter);
     index2=-1;
-
     if(index1>-1)
     {
         while(index1!=index2)
         {
             index1=texto.indexOf(": Audio: ",caracter);
             index2=texto.lastIndexOf(": Audio: ");
-
             tipo=texto.indexOf(" ",index1+10);
             ini_stream=texto.indexOf("Stream",index1-40);
             ckbox=texto.mid(ini_stream,tipo-ini_stream);
-
 //            qDebug() << ckbox;
 //            qDebug() << arquivo.mid(7,1).toInt();
 //            qDebug() << numstream;
             streams(ckbox,arquivo.mid(7,1).toInt(),numstream);
             numstream=numstream+1;
-
             caracter=index1+9;
         }
     }
-
-
-
     // ----------------------------------------------------------Subtitle--------------------------------------------------------------------------------
     caracter=0;
     index1=texto.indexOf(": Subtitle: ",caracter);
@@ -135,42 +112,37 @@ void MainWindow::verificar_entrada(QString arquivo)
         {
             index1=texto.indexOf(": Subtitle: ",caracter);
             index2=texto.lastIndexOf(": Subtitle: ");
-
             tipo=texto.indexOf(" ",index1+13);
             ini_stream=texto.indexOf("Stream",index1-20);
             ckbox=texto.mid(ini_stream,tipo-ini_stream);
-
-
             streams(ckbox,arquivo.mid(7,1).toInt(),numstream);
             numstream=numstream+1;
-
             caracter=index1+9;
         }
     }
 */
     f.close();
 }
-
 //-------------------------------------------------------------ENTRADAS-----------------------------------------------------------
-void MainWindow::on_entrada_1_clicked()
+void MainWindow::on_entrada_1_clicked()//botão de entrada clicado
 {
-        QString filename = QFileDialog::getOpenFileName(this, tr("Escolha o arquivo de Entrada"));
-    ui->tex_entrada_1->setText(filename);
+    QString filename = QFileDialog::getOpenFileName(this, tr("Escolha o arquivo de Entrada"));//abre janela para selecionar arquivo
+    ui->tex_entrada_1->setText(filename);//escreve o caminho na linha de edição
     int i;//apaga as entradas antigas
-    for (i=0;i<10;i++)
+    for (i=0;i<10;i++)//apaga os maps antigos
     {
         streams("desativar",1,i);
     }
-    alterar_comando(1);
+    alterar_comando(1);// altera o comando
    // qDebug() << ui->tex_entrada_1->text();
   //  qDebug() << filename.toLatin1();
   //  qDebug() << verif_esp(ui->tex_entrada_1->text());
    // qDebug() << verif_esp(filename).toLatin1();
 
-    system("ffmpeg -i " + ui->tex_entrada_1->text().toLatin1() + " 2>entrada1");
-    verificar_entrada("entrada1");
-    multi_ativo();
-    if(filename!="")
+    system("ffmpeg -i " + ui->tex_entrada_1->text().toLatin1() + " 2>entrada1");//diz para o FFmpeg analisar a entrada e escrevo o resultado em arquivo txt
+    verificar_entrada("entrada1");//escreve os maps
+    multi_ativo();//altera aba multiplos programas
+    if(filename!="")//se o arquivo não foi selecionado apaga todas as entradas.
     {
         ui->entrada_2->setDisabled(0);
         ui->tex_entrada_2->setDisabled(0);
@@ -252,25 +224,22 @@ void MainWindow::on_entrada_5_clicked()
     multi_ativo();
 }
 //--------------------------------------------------------------EXCLUIR ENTRADAS-----------------------------------------------------------
-void MainWindow::on_excluir_entrada_1_clicked()
+void MainWindow::on_excluir_entrada_1_clicked()//botão excluir entrada clicado
 {
     //reinicia os multiplos programas
     ui->multiprogramas->setChecked(0);
     on_multiprogramas_clicked();
 
-    ui->tex_entrada_1->setText("");
-    alterar_comando(1);
+    ui->tex_entrada_1->setText("");//exclui texto da linha de edição
+    alterar_comando(1);//altera o comando
     int lin;//apaga entradas
     for(lin=0;lin<10;lin++)
     {
         streams("desativar",1,lin);
     }
     alterar_comando(2);
-
-    desab_entrada_2();
+    desab_entrada_2();//exclui as entradas de maior numero
     on_excluir_entrada_2_clicked();
-
-
 }
 void MainWindow::on_excluir_entrada_2_clicked()
 {
@@ -284,10 +253,8 @@ void MainWindow::on_excluir_entrada_2_clicked()
     {
         streams("desativar",2,lin);
     }
-
     desab_entrada_3();
     on_excluir_entrada_3_clicked();
-
     alterar_comando(2);
 }
 void MainWindow::on_excluir_entrada_3_clicked()
@@ -295,7 +262,6 @@ void MainWindow::on_excluir_entrada_3_clicked()
     //reinicia os multiplos programas
     ui->multiprogramas->setChecked(0);
     on_multiprogramas_clicked();
-
     ui->tex_entrada_3->setText("");
     alterar_comando(1);
     int lin;//apaga entradas
@@ -303,11 +269,8 @@ void MainWindow::on_excluir_entrada_3_clicked()
     {
         streams("desativar",3,lin);
     }
-
     desab_entrada_4();
     on_excluir_entrada_4_clicked();
-
-
     alterar_comando(2);
 }
 void MainWindow::on_excluir_entrada_4_clicked()
@@ -315,7 +278,6 @@ void MainWindow::on_excluir_entrada_4_clicked()
     //reinicia os multiplos programas
     ui->multiprogramas->setChecked(0);
     on_multiprogramas_clicked();
-
     ui->tex_entrada_4->setText("");
     alterar_comando(1);
     int lin;//apaga entradas
@@ -325,7 +287,6 @@ void MainWindow::on_excluir_entrada_4_clicked()
     }
     desab_entrada_5();
     on_excluir_entrada_5_clicked();
-
     alterar_comando(2);
 }
 void MainWindow::on_excluir_entrada_5_clicked()
@@ -333,7 +294,6 @@ void MainWindow::on_excluir_entrada_5_clicked()
     //reinicia os multiplos programas
     ui->multiprogramas->setChecked(0);
     on_multiprogramas_clicked();
-
     ui->tex_entrada_5->setText("");
     alterar_comando(1);
     int lin;//apaga entradas
@@ -341,24 +301,21 @@ void MainWindow::on_excluir_entrada_5_clicked()
     {
         streams("desativar",5,lin);
     }
-
-
     alterar_comando(2);
 }
 //---------------------------------------------------------ALTERAÇÃO PELO USUARIO-----------------------------------------------------------------
-void MainWindow::on_tex_entrada_1_editingFinished()
+void MainWindow::on_tex_entrada_1_editingFinished()//quando o usuario altera manualmente a linha de edição
 {
-    int i;//apaga as entradas antigas
+    int i;//apaga os maps antigos antigas
     for (i=0;i<10;i++)
     {
         streams("desativar",1,i);
     }
     alterar_comando(1);
-    system("ffmpeg -i " + ui->tex_entrada_1->text().toLatin1() + " 2>entrada1");
+    system("ffmpeg -i " + ui->tex_entrada_1->text().toLatin1() + " 2>entrada1");//analisa com o FFmpeg a entrada
     verificar_entrada("entrada1");
-    alterar_comando( 2);
-
-    if(ui->tex_entrada_1->text()=="")
+    alterar_comando(2);
+    if(ui->tex_entrada_1->text()=="")//se o usuario excluiu o texto da entrada, exclui as entradas de umero maior
     {
         desab_entrada_2();
     }
@@ -428,7 +385,7 @@ void MainWindow::on_tex_entrada_5_editingFinished()
 
 }
 //--------------------------DESABILITAR ENTRADAS----------------------------------
-void MainWindow::desab_entrada_2()
+void MainWindow::desab_entrada_2()//impossibilita o usuário de defiir entrada
 {
     int lin;//apaga maps da entrada
     for(lin=0;lin<10;lin++)

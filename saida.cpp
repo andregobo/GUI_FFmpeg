@@ -6,7 +6,7 @@
 
 
 
-void MainWindow::alterar_comando(int pos)//Altera o comando
+void MainWindow::alterar_comando(int pos)//Altera o comando => input_1, map_2, codec_3, avancado_4, tempo_5, verbose_6, saida_7;
 {
     QString comando;
     switch (pos)
@@ -173,14 +173,7 @@ void MainWindow::alterar_comando(int pos)//Altera o comando
     break;
 
     case 6:
-        if(ui->tex_saida_1->text()=="")
-        {
-            saida_7= " " + verif_esp(ui->nome_saida->text());
-        }
-        else
-        {
-            saida_7= " " + verif_esp(ui->tex_saida_1->text()) + "/" + verif_esp(ui->nome_saida->text());
-        }
+        //verbose
     break;
 
     case 7:
@@ -205,19 +198,14 @@ void MainWindow::alterar_comando(int pos)//Altera o comando
             }
         }
     break;
-
-
     }
-
     comando =  "gnome-terminal -x ffmpeg" + input_1 + map_2 + codec_3 + avancado_4 + tempo_5 + saida_7;
-
     ui->tex_comando->setText(comando);
 }
 
-
 void MainWindow::on_saida_1_clicked()
 {
-    QString filename = QFileDialog::getExistingDirectory(this,  tr("Escolha a pasta de destino da saída"));
+    QString filename = QFileDialog::getExistingDirectory(this,  tr("Escolha a pasta de destino da saída"));//abre janela para selecionar pasta
 
     ui->tex_saida_1->setText(filename);
 

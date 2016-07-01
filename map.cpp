@@ -8,7 +8,7 @@
 
 
 //--------------------------------------------------CONTROLE DE CKBOX DOS MAPS (STREAMS)----------------------------------
-QString MainWindow::map_multi_prog(int cont)
+QString MainWindow::map_multi_prog(int cont)//chamado para escrever as configurações de map
 {
     switch (cont)
         {
@@ -50,16 +50,16 @@ QString MainWindow::multi_map_choice(QString map,int choice, int in)
 {
     if(choice==1)
     {
-        if(map.length()==18)
+        if(map.length()==18)//retorna map de vídeo
         {
             return map.mid(0,9);
         }
         else
         {
              //qDebug() << ui->abas->currentIndex();
-            if(map!="0"&&ui->abas->currentIndex()==2)
+            if(map!="0"&&ui->abas->currentIndex()==2)//verifica se realmente existem duas streams na entradas
             {
-                QMessageBox msgBox1;
+                QMessageBox msgBox1;//informa o usuário do erro
                 msgBox1.setStandardButtons(QMessageBox::Ok);
                 msgBox1.setText("Deve-se selecionar duas strings em cada entrada utilizada. Verifique programa "+QString::number(in));
                 msgBox1.exec();
@@ -72,7 +72,7 @@ QString MainWindow::multi_map_choice(QString map,int choice, int in)
     {
         if(map.length()==18)
         {
-            return map.mid(9,9);
+            return map.mid(9,9);//retorna map de áudio
         }
         else
         {
@@ -81,7 +81,7 @@ QString MainWindow::multi_map_choice(QString map,int choice, int in)
     }
 }
 
-QString MainWindow::multi_conexao(int prog)
+QString MainWindow::multi_conexao(int prog)//faz a relação programa/entrada
 {
     switch (prog)
         {
@@ -197,27 +197,25 @@ QString MainWindow::multi_conexao(int prog)
     }
     return "0";
 }
-QString MainWindow::multi_ret_entrada(int in)
+QString MainWindow::multi_ret_entrada(int in)//constroi o texto do map
 {
     int lin;
     QString map;
     map="";
     for(lin=0;lin<10;lin++)
     {
-       if(streams("ckbox",in,lin))
+       if(streams("ckbox",in,lin))//verdadeiro se a stream foi selecionada
        {
            map= map + " -map " + QString::number(in-1) + ":" + QString::number(lin);
        }
     }
     lin=0;
-
     return map;
 }
-
-void MainWindow::multi_ativo()
+void MainWindow::multi_ativo()//ativa multiplos programas
 {
     int entradas;
-    entradas=num_entrada();
+    entradas=num_entrada();//verifica o numero de entradas
 //    qDebug() << QString::number(entrsadas);
     switch (entradas)
         {
@@ -510,7 +508,7 @@ void MainWindow::multi_ativo()
     }
 }
 
-int MainWindow::num_entrada()
+int MainWindow::num_entrada()//informa numero de entradas
 {
     if(ui->tex_entrada_1->text()!="")
     {
@@ -534,7 +532,7 @@ int MainWindow::num_entrada()
     }
     return 0;
 }
-int MainWindow::num_programas()
+int MainWindow::num_programas()//informa numeros de programas
 
 {
     if(ui->prog1_entra1->isChecked()||ui->prog1_entra2->isChecked()||ui->prog1_entra3->isChecked()||ui->prog1_entra4->isChecked()||ui->prog1_entra5->isChecked())
@@ -560,7 +558,7 @@ int MainWindow::num_programas()
     return 0;
 }
 
-int MainWindow::streams(QString nome, int entrada, int indice)
+int MainWindow::streams(QString nome, int entrada, int indice)//altera maps
 {
 
     switch (entrada)
@@ -1399,7 +1397,7 @@ int MainWindow::streams(QString nome, int entrada, int indice)
 }
 
 
-//-----------------------------------------------------ALTERA COMANDO MAP-------------------------------------------
+//-----------------------------------------------------ALTERA COMANDO QUANDO A STREAM É SELECIONADA-------------------------------------------
 void MainWindow::on_input1_0x0_clicked()
 {
 alterar_comando(2);
@@ -1600,7 +1598,7 @@ void MainWindow::on_input5_0x9_clicked()
 {
 alterar_comando(2);
 }
-//-------------------------------ALTERAR MULTIPROGRAMAS-----------------------------
+//-------------------------------ALTERAR COMANDO QUANDO PROGRAMAS SÃO LINCADOS COM ENTRADA-----------------------------
 
 void MainWindow::on_prog1_entra1_clicked()
 {
