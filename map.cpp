@@ -61,7 +61,7 @@ QString MainWindow::multi_map_choice(QString map,int choice, int in)
             {
                 QMessageBox msgBox1;//informa o usuário do erro
                 msgBox1.setStandardButtons(QMessageBox::Ok);
-                msgBox1.setText("Deve-se selecionar duas strings em cada entrada utilizada. Verifique programa "+QString::number(in));
+                msgBox1.setText("Deve-se selecionar duas streams em cada entrada utilizada. Verifique programa "+QString::number(in));
                 msgBox1.exec();
             }
             return "";
